@@ -131,7 +131,8 @@ CREATE TABLE `comprend` (
 
 
 --
--- Ajout de clé primaire et clé étrangère pour la table `comprend`
+-- Ajout de clé primaire composée et d'un index pour la table `comprend`
+-- pour accélérer les recherches par ingrédient
 --
 ALTER TABLE `comprend`
   ADD PRIMARY KEY (`id_focaccia`,`id_ingredient`),
@@ -139,8 +140,7 @@ ALTER TABLE `comprend`
 
 
 --
--- Ajout de la clé primaire composée et d'un index
--- pour accélérer les recherches par ingrédient
+-- Ajout de clés étrangères pour la table `comprend`
 --
 ALTER TABLE `comprend`
   ADD CONSTRAINT `ik_comprend_focaccia` FOREIGN KEY (`id_focaccia`) REFERENCES `focaccia` (`id_focaccia`),
